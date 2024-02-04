@@ -26,7 +26,7 @@ First clone this repo by using following command
 then 
 ````
 
-cd fastapi-course
+cd fastapi-python-api-development
 
 ````
 
