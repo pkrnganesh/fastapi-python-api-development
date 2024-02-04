@@ -1,0 +1,24 @@
+version: "3"
+services:
+      api:
+         build: .
+         depends_on:
+           - postgres
+         ports:
+            - 80:8000
+         volumes:
+            - ./:/usr/src/app:ro 
+         #command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+         env_file:
+            - ./.env
+      postgres:
+         image: postgres
+         environment:
+            - POSTGRES_PASSWORD = YOURPASSWORD
+            - POSTGRES_DB=fastapi
+         volumes:
+            - postgres-db:/var/lib/postgresql/data
+volumes:
+     - postgres-db:   
+     # named volumes here this above line is written so that multiples containers can use this volume

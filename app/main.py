@@ -32,6 +32,10 @@ app.include_router(auth.router)
 app.include_router(vote.router)
 
 
+@app.get("/", status_code=status.HTTP_201_CREATED)
+def root():
+    return {"message": "Hello World"}
+
 
 # class Post(BaseModel):
 #     title:str
